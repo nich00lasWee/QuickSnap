@@ -22,17 +22,25 @@ namespace CardGames
 			//Fetch the next batch of UI interaction
 			SwinGame.ProcessEvents();
 
-			if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
+			if (SwinGame.KeyTyped(KeyCode.vk_SPACE))
 			{
-				myGame.Start ();
+				myGame.Start();
+			}
+			if (myGame.IsStarted)
+			{
+				if (SwinGame.KeyTyped(KeyCode.vk_LSHIFT) && SwinGame.KeyTyped(KeyCode.vk_RSHIFT))
+				{ //TODO: add sound effects} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)){ myGame.PlayerHit (0); } Note: Watch out, git commit -am "..." will not add any new files. So only use this if you have just changed existing files.
+
+				}
+				else if (SwinGame.KeyTyped(KeyCode.vk_RSHIFT)) { myGame.PlayerHit(1); }
 			}
 		}
 
-		/// <summary>
-		/// Draws the game to the Window.
-		/// </summary>
-		/// <param name="myGame">The details of the game -- mostly top card and scores.</param>
-		private static void DrawGame(Snap myGame)
+			/// <summary>
+			/// Draws the game to the Window.
+			/// </summary>
+			/// <param name="myGame">The details of the game -- mostly top card and scores.</param>
+			private static void DrawGame(Snap myGame)
 		{
 			SwinGame.ClearScreen(Color.White);
 
